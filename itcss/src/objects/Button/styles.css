@@ -1,0 +1,35 @@
+.button {
+  border: none;
+  background-color: var(--color-fist);
+  color: var(--color-negative);
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: opacity 0.4s;
+}
+
+.button:hover {
+  opacity: 0.6;
+}
+
+.button:active {
+  animation: active-button 0.2s linear;
+}
+
+@keyframes active-button {
+  0% {
+    position: relative;
+    transform: scale(1);
+  }
+
+  50% {
+    position: relative;
+    transform: scale(0.9);
+  }
+
+  100% {
+    position: relative;
+    transform: scale(1);
+  }
+}
