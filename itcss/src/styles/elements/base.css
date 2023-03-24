@@ -1,0 +1,7 @@
+body {
+  font-family: "Outfit", sans-serif;
+  background-color: var(--color-negative);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
