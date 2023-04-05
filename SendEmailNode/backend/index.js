@@ -7,6 +7,10 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json());
 app.use(cors());
 
+app.post("/", (req, res) => {
+  const { to, subject, message } = req.body;
+});
+
 // const transport = nodemailer.createTransport({
 //   host: "smtp.gmail.com",
 //   port: 465,
