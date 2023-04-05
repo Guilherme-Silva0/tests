@@ -1,7 +1,7 @@
 const nodemailer = require("nodemailer");
 require("dotenv").config();
 
-const sendEmail = (to, subject, message) => {
+const sendEmail = async (to, subject, message) => {
   const transport = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 465,
@@ -12,20 +12,14 @@ const sendEmail = (to, subject, message) => {
     },
   });
 
-  transport
-    .sendMail({
-      from: "Guilherme Silva <" + process.env.EMAIL_HOST + ">",
-      to: to,
-      subject: subject,
-      html: message,
-      text: message,
-    })
-    .then(() => {
-      return true;
-    })
-    .catch(() => {
-      return false;
-    });
+  const isSent = await transport.sendMail({
+    from: "Guilherme Silva <" + process.env.EMAIL_HOST + ">",
+    to: to,
+    subject: subject,
+    html: message,
+    text: message,
+  });
+  return isSent;
 };
 
 module.exports = sendEmail;
