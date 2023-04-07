@@ -1,5 +1,7 @@
+import "./global.css";
+
 const App = () => {
-  return <h1>App</h1>;
+  return <Form />;
 };
 
 export default App;
