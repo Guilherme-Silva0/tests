@@ -2,8 +2,10 @@ import Input from "./Input";
 import TextArea from "./TextArea";
 import Button from "./Button";
 import Error from "./Error";
+import Load from "./Load";
+import Success from "./Success";
 
-const Form = ({ handleSubmit, errors }) => {
+const Form = ({ handleSubmit, errors, isLoading, isSuccess }) => {
   return (
     <form
       className="flex flex-col items-center justify-center gap-3 bg-gray-800 p-6 rounded-xl shadow-lg w-80 mx-4"
@@ -17,6 +19,7 @@ const Form = ({ handleSubmit, errors }) => {
         });
       }}
     >
+      {isSuccess && <Success />}
       {errors && <Error>{errors}</Error>}
       <div className="flex flex-col gap-1 w-full">
         <label htmlFor="fate" className="text-gray-200 font-medium">
@@ -40,7 +43,9 @@ const Form = ({ handleSubmit, errors }) => {
         </label>
         <TextArea placeholder="digite a mensagem..." id="message" />
       </div>
-      <Button type="submit">Enviar</Button>
+      <Button type="submit" disabled={isLoading}>
+        {isLoading ? <Load /> : "Enviar"}
+      </Button>
     </form>
   );
 };
