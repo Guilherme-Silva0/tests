@@ -16,10 +16,12 @@ const schema = Yup.object().shape({
 const App = () => {
   const [errors, setErrors] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const handleSubmit = async (values) => {
     try {
       await schema.validate(values);
+      setIsLoading(true);
       setErrors("");
       const api = useApi();
       const res = await api.send({
@@ -27,16 +29,27 @@ const App = () => {
         subject: values.subject,
         message: values.message,
       });
+      setIsLoading(false);
       if (res) {
-        console.log(res);
+        setIsSuccess(true);
+        setTimeout(() => {
+          setIsSuccess(false);
+        }, 3000);
       } else {
-        console.log(res);
+        setErrors("Ouve um erro no sistema.");
       }
     } catch (err) {
       setErrors(err.errors);
     }
   };
-  return <Form handleSubmit={handleSubmit} errors={errors} isLoading />;
+  return (
+    <Form
+      handleSubmit={handleSubmit}
+      errors={errors}
+      isLoading={isLoading}
+      isSuccess={isSuccess}
+    />
+  );
 };
 
 export default App;
