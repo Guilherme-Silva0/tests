@@ -3,6 +3,8 @@
 import { FormEvent, useState } from 'react'
 import { signIn } from 'next-auth/react'
 import { toast } from 'react-hot-toast'
+import ButtonAuthSocial from '@/components/ButtonAuthSocial'
+import { GithubIcon } from 'lucide-react'
 
 export default function Login() {
   const [data, setData] = useState({
@@ -106,6 +108,18 @@ export default function Login() {
               >
                 Sign in
               </button>
+            </div>
+            <div className="flex gap-2">
+              <ButtonAuthSocial
+                onClick={() => {}}
+                media="google"
+                icon={'google'}
+              />
+              <ButtonAuthSocial
+                onClick={() => signIn('github')}
+                media="github"
+                icon={GithubIcon}
+              />
             </div>
           </form>
 
