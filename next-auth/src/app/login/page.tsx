@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from 'react'
 import { signIn } from 'next-auth/react'
+import { toast } from 'react-hot-toast'
 
 export default function Login() {
   const [data, setData] = useState({
@@ -11,9 +12,15 @@ export default function Login() {
 
   const loginUser = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    signIn('credentials', { ...data, redirect: false }).then(() =>
-      alert('deu bom'),
-    )
+    signIn('credentials', { ...data, redirect: false }).then((callback) => {
+      if (callback?.error) {
+        toast.error(callback.error)
+      }
+
+      if (callback?.ok && !callback.error) {
+        toast.success('Deu bom!')
+      }
+    })
   }
 
   return (

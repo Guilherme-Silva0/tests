@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from 'react'
 import axios from 'axios'
+import { toast } from 'react-hot-toast'
 
 export default function Register() {
   const [data, setData] = useState({ name: '', email: '', password: '' })
@@ -10,8 +11,8 @@ export default function Register() {
     e.preventDefault()
     axios
       .post('/api/register', data)
-      .then(() => alert('deu tudo certo!'))
-      .catch(() => alert('houve um erro'))
+      .then(() => toast.success('Deu certo!'))
+      .catch(() => toast.error('houve um erro'))
   }
 
   return (
