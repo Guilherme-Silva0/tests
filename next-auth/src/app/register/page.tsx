@@ -3,6 +3,7 @@
 import { FormEvent, useState } from 'react'
 import axios from 'axios'
 import { toast } from 'react-hot-toast'
+import Link from 'next/link'
 
 export default function Register() {
   const [data, setData] = useState({ name: '', email: '', password: '' })
@@ -115,12 +116,12 @@ export default function Register() {
 
           <p className="mt-10 text-center text-sm text-gray-500">
             Not a member?{' '}
-            <a
-              href="#"
+            <Link
+              href="/login"
               className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
             >
-              Start a 14 day free trial
-            </a>
+              Login
+            </Link>
           </p>
         </div>
       </div>

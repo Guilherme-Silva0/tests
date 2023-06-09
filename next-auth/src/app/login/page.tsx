@@ -5,6 +5,7 @@ import { signIn } from 'next-auth/react'
 import { toast } from 'react-hot-toast'
 import ButtonAuthSocial from '@/components/ButtonAuthSocial'
 import { GithubIcon } from 'lucide-react'
+import Link from 'next/link'
 
 export default function Login() {
   const [data, setData] = useState({
@@ -111,7 +112,7 @@ export default function Login() {
             </div>
             <div className="flex gap-2">
               <ButtonAuthSocial
-                onClick={() => {}}
+                onClick={() => signIn('google')}
                 media="google"
                 icon={'google'}
               />
@@ -125,12 +126,12 @@ export default function Login() {
 
           <p className="mt-10 text-center text-sm text-gray-500">
             Not a member?{' '}
-            <a
-              href="#"
+            <Link
+              href="/register"
               className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
             >
-              Start a 14 day free trial
-            </a>
+              Register
+            </Link>
           </p>
         </div>
       </div>
