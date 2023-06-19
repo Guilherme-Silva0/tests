@@ -1,3 +1,4 @@
+import { FormNewPostData } from '@/components/form/FormNewPost'
 import axios from 'axios'
 
 export interface IPostData {
@@ -15,12 +16,24 @@ const useApi = () => ({
   getPosts: async (page: number) => {
     try {
       const { data }: { data: IPostData[] } = await api.get(
-        `/posts?_page=${page}&_limit=8`,
+        `/posts?_page=${page}&_limit=12`,
       )
 
       return data
     } catch (error) {
       console.log('Error loading posts:', error)
+    }
+  },
+  createPost: async (dataForm: FormNewPostData) => {
+    try {
+      const { data }: { data: IPostData } = await api.post('/posts', {
+        userId: 1,
+        ...dataForm,
+      })
+
+      return data
+    } catch (error) {
+      console.log('Error create post:', error)
     }
   },
 })

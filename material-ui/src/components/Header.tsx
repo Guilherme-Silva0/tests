@@ -33,7 +33,7 @@ const Header = ({ title }: IHeaderProps) => {
         </IconButton>
       )}
       <Typography
-        variant={smDown ? 'h6' : mdDown ? 'h5' : 'h4'}
+        variant={smDown ? 'h5' : mdDown ? 'h4' : 'h3'}
         fontWeight="500"
         whiteSpace="nowrap"
         overflow="hidden"

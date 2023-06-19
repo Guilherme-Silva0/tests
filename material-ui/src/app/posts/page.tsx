@@ -78,6 +78,7 @@ export default function Products() {
       <FormNewPost
         open={openFormNewPost}
         handleOpen={() => setOpenFormNewPost((oldOpen) => !oldOpen)}
+        setPosts={setPosts}
       />
       <Box flexGrow={1} overflow="auto" marginY={2} ref={boxRef}>
         <Grid container spacing={2}>
