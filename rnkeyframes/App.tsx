@@ -1,20 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, View } from "react-native";
+import { styles } from "./styles";
+import { Message } from "./src/components/Message";
+import { useState } from "react";
 
 export default function App() {
+  const [show, setShow] = useState(false);
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+      {show && <Message />}
+
+      <Button
+        title={show ? "Fechar Mensagem" : "Exibir Mensagem"}
+        onPress={() => setShow((oldShow) => !oldShow)}
+      />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
