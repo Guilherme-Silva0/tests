@@ -1,20 +1,16 @@
+import { Text, TouchableOpacity, View } from 'react-native';
+import { MaterialIcons } from '@expo/vector-icons';
+import tw from "twrnc";
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={tw`flex-1 justify-center items-center gap-4 bg-slate-900`}>
+      <Text style={tw`text-3xl font-semibold text-white`}>Hello Tailwind</Text>
+      <TouchableOpacity style={tw`p-1 rounded-xl bg-blue-500`}>
+        <MaterialIcons name="blur-on" size={30} color="white" />
+      </TouchableOpacity>
+      <StatusBar style='inverted'/>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
