@@ -1,15 +1,16 @@
-import { StyleSheet } from 'react-native'
+import { createStyleSheet } from '../../libs/unistyles'
 
-export const styles = StyleSheet.create({
+export const stylesheet = createStyleSheet((theme) => ({
   container: {
     flex: 1,
-    backgroundColor: '#FFF',
+    backgroundColor: theme.colors.background,
   },
   header: {
     width: '100%',
     height: 184,
     alignItems: 'center',
-    backgroundColor: '#4453B2',
+    backgroundColor: theme.colors.primary,
+    paddingTop: 48,
   },
   img: {
     height: 232,
@@ -23,23 +24,23 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   text: {
-    color: '#000',
+    color: theme.colors.black,
   },
   title: {
-    fontSize: 22,
+    fontSize: theme.fontSize.xl,
     fontWeight: '700',
   },
   description: {
-    fontSize: 16,
+    fontSize: theme.fontSize.md,
     lineHeight: 24,
     marginTop: 8,
   },
   product: {
-    color: '#685ED9',
+    color: theme.colors.primary,
     fontWeight: '700',
   },
   rating: {
     marginTop: 42,
     flex: 1,
   },
-})
+}))
