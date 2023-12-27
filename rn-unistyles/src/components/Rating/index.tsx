@@ -1,7 +1,8 @@
 import { View } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons'
 
-import { styles } from './styles'
+import { stylesheet } from './styles'
+import { useStyles } from '../../libs/unistyles'
 
 interface Props {
   max: number
@@ -9,6 +10,7 @@ interface Props {
 }
 
 export function Rating({ max = 5, value }: Props) {
+  const { styles } = useStyles(stylesheet)
   const length = value > max ? max : value
 
   return (
