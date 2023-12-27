@@ -1,19 +1,17 @@
-import { StyleSheet } from 'react-native'
+import { createStyleSheet } from '../../libs/unistyles'
 
-export const styles = StyleSheet.create({
+export const stylesheet = createStyleSheet((theme) => ({
   container: {
     width: '100%',
     height: 56,
     padding: 16,
-    borderRadius: 8,
+    borderRadius: 12,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#685ED9',
   },
   text: {
     fontWeight: '700',
-    fontSize: 16,
-    color: '#FFF',
+    fontSize: theme.fontSize.md,
   },
-})
+}))
