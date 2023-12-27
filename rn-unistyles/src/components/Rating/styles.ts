@@ -1,9 +1,9 @@
-import { StyleSheet } from 'react-native'
+import { createStyleSheet } from '../../libs/unistyles'
 
-export const styles = StyleSheet.create({
+export const stylesheet = createStyleSheet(() => ({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 16,
   },
-})
+}))
